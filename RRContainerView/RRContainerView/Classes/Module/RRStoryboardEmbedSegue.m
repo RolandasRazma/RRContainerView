@@ -60,8 +60,10 @@
 
 - (void)perform {
     
+    // Notify about segue to be performed
     [_viewController prepareForSegue:self sender:_viewController];
     
+    // Add child view controller
     UIViewController *viewController = [_viewController.storyboard instantiateViewControllerWithIdentifier:_destinationViewControllerIdentifier];
     [_viewController addChildViewController:viewController];
     
@@ -91,7 +93,7 @@
 - (void)setContainerView:(UIView *)containerView {
     _containerView = containerView;
 
-    // so this works for first time - what to do on view load?
+    // in iOS6 this is performed when view is loading, but I think we can perform it here...
     [self perform];
 }
 
