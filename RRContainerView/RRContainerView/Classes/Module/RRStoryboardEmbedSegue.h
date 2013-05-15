@@ -27,7 +27,7 @@
 
 @interface RRStoryboardEmbedSegue : UIStoryboardSegue
 
-@property (nonatomic) UIViewController *viewController;
-@property (nonatomic) UIView *containerView;
+@property (nonatomic, weak) UIViewController *viewController;
+@property (nonatomic, weak) UIView *containerView;
 
 @end

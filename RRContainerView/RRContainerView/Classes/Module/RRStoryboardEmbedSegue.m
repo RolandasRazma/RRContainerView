@@ -27,10 +27,11 @@
 
 
 @implementation RRStoryboardEmbedSegue {
-    UIViewController    *_viewController;
-    UIView              *_containerView;
-    NSString            *_destinationViewControllerIdentifier;
-    NSString            *_identifier;
+    __weak UIViewController *_viewController;
+    __weak UIView           *_containerView;
+    __weak UIViewController *_destinationViewController;
+    NSString                *_destinationViewControllerIdentifier;
+    NSString                *_identifier;
 }
 
 
@@ -58,21 +59,33 @@
 }
 
 
+- (UIViewController *)sourceViewController {
+    return _viewController;
+}
+
+
+- (UIViewController *)destinationViewController {
+    return _destinationViewController;
+}
+
+
 - (void)perform {
+    
+    // instantiate view controller
+    _destinationViewController = [_viewController.storyboard instantiateViewControllerWithIdentifier:_destinationViewControllerIdentifier];
     
     // Notify about segue to be performed
     [_viewController prepareForSegue:self sender:_viewController];
     
     // Add child view controller
-    UIViewController *viewController = [_viewController.storyboard instantiateViewControllerWithIdentifier:_destinationViewControllerIdentifier];
-    [_viewController addChildViewController:viewController];
+    [_viewController addChildViewController:_destinationViewController];
     
-    [viewController viewWillAppear:NO];
-    [viewController.view setFrame:_containerView.bounds];
-    [viewController.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
-    [_containerView addSubview:viewController.view];
-    [viewController viewDidAppear:NO];
-    [viewController didMoveToParentViewController:_viewController];
+    [_destinationViewController viewWillAppear:NO];
+    [_destinationViewController.view setFrame:_containerView.bounds];
+    [_destinationViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
+    [_containerView addSubview:_destinationViewController.view];
+    [_destinationViewController viewDidAppear:NO];
+    [_destinationViewController didMoveToParentViewController:_viewController];
     
 }
 
