@@ -70,23 +70,30 @@
 
 
 - (void)perform {
+
+    BOOL newViewController = (_destinationViewController == nil);
     
     // instantiate view controller
-    _destinationViewController = [_viewController.storyboard instantiateViewControllerWithIdentifier:_destinationViewControllerIdentifier];
-    
-    // Notify about segue to be performed
-    [_viewController prepareForSegue:self sender:_viewController];
-    
-    // Add child view controller
-    [_viewController addChildViewController:_destinationViewController];
+    if( newViewController ){
+        _destinationViewController = [_viewController.storyboard instantiateViewControllerWithIdentifier:_destinationViewControllerIdentifier];
+        
+        // Notify about segue to be performed
+        [_viewController prepareForSegue:self sender:_viewController];
+        
+        // Add child view controller
+        [_viewController addChildViewController:_destinationViewController];
+    }
     
     [_destinationViewController viewWillAppear:NO];
     [_destinationViewController.view setFrame:_containerView.bounds];
     [_destinationViewController.view setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight];
     [_containerView addSubview:_destinationViewController.view];
     [_destinationViewController viewDidAppear:NO];
-    [_destinationViewController didMoveToParentViewController:_viewController];
     
+    if( newViewController ){
+        [_destinationViewController didMoveToParentViewController:_viewController];
+    }
+
 }
 
 
