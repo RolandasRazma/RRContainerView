@@ -29,10 +29,10 @@
             </objects>
             <point key="canvasLocation" x="227" y="16"/>
         </scene>
-        <!--Cointainer View Controller-->
+        <!--View Controller-->
         <scene sceneID="Fcj-A3-O2K">
             <objects>
-                <viewController id="iKP-9v-QWG" customClass="RRCointainerViewController" sceneMemberID="viewController">
+                <viewController id="iKP-9v-QWG" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="O1s-Bb-3Ye">
                         <rect key="frame" x="0.0" y="0.0" width="280" height="420"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
