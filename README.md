@@ -15,7 +15,7 @@ If you fork, you will find workspace with 2 projects **RRTestApp** and **RRConta
 
 I don't have blog so...
 ============
-So I started build iPad version of [@YPlan](http://yplanapp.com) and thought it would be nice to use iOS6 "Container View" in Interface Builder - unfortunately its iOS6 only… As I had a lot of fun porting [AutoLayout](https://github.com/RolandasRazma/RRAutoLayout) to iOS5 I decided to do same for "Container View". This should be App Store valid but I will update about that after iPad version of [@YPlan](http://yplanapp.com) will be aprooved/rejected :)
+So I started build iPad version of [@YPlan](http://yplanapp.com) and thought it would be nice to use iOS6 "Container View" in Interface Builder - unfortunately its iOS6 only… As I had a lot of fun porting [AutoLayout](https://github.com/RolandasRazma/RRAutoLayout) to iOS5 I decided to do same for "Container View". This should be App Store valid but I will update about that after iPad version of [@YPlan](http://yplanapp.com) will be approved/rejected :)
 
 How to use it in my project?
 ============

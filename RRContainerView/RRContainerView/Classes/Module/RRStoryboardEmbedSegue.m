@@ -23,7 +23,6 @@
 //
 
 #import "RRStoryboardEmbedSegue.h"
-#import <objc/runtime.h>
 
 
 @implementation RRStoryboardEmbedSegue {
@@ -44,7 +43,7 @@
     // here I'm checking for NSLayoutConstraint because UIStoryboardEmbedSegueTemplate is private in iOS6
     // keep in mind that I'm NOT using any private classes here as UIStoryboardEmbedSegueTemplate doesn't exist in iOS5
     if( !NSClassFromString(@"NSLayoutConstraint") ){
-        objc_registerClassPair(objc_allocateClassPair([RRStoryboardEmbedSegue class], "UIStoryboardEmbedSegueTemplate", 0));
+        [NSKeyedUnarchiver setClass:[RRStoryboardEmbedSegue class] forClassName:@"UIStoryboardEmbedSegueTemplate"];
     }
 
 }
