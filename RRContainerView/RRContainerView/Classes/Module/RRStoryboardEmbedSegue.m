@@ -41,10 +41,12 @@
 
 + (void)load {
     
-    // Check if iOS doesn't have support for it
-    // keep in mind that I'm NOT using any private classes here as UIStoryboardEmbedSegueTemplate doesn't exist in iOS5
-    if( [[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] == NSOrderedAscending ){
-        [NSKeyedUnarchiver setClass:[RRStoryboardEmbedSegue class] forClassName:@"UIStoryboardEmbedSegueTemplate"];
+    @autoreleasepool {
+        // Check if iOS doesn't have support for it
+        // keep in mind that I'm NOT using any private classes here as UIStoryboardEmbedSegueTemplate doesn't exist in iOS5
+        if( [[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] == NSOrderedAscending ){
+            [NSKeyedUnarchiver setClass:[RRStoryboardEmbedSegue class] forClassName:@"UIStoryboardEmbedSegueTemplate"];
+        }
     }
 
 }
