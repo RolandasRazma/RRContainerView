@@ -25,9 +25,11 @@
 #import <UIKit/UIKit.h>
 
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
 @interface RRStoryboardEmbedSegue : UIStoryboardSegue
 
 @property (nonatomic, weak) UIViewController *viewController;
 @property (nonatomic, weak) UIView *containerView;
 
 @end
+#endif

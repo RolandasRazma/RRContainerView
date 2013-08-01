@@ -25,6 +25,7 @@
 #import "RRStoryboardEmbedSegue.h"
 
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_6_0
 @implementation RRStoryboardEmbedSegue {
     __weak UIViewController *_viewController;
     __weak UIView           *_containerView;
@@ -118,3 +119,4 @@
 
 
 @end
+#endif
