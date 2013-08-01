@@ -41,9 +41,9 @@
 
 + (void)load {
     
-    // here I'm checking for NSLayoutConstraint because UIStoryboardEmbedSegueTemplate is private in iOS6
+    // Check if iOS doesn't have support for it
     // keep in mind that I'm NOT using any private classes here as UIStoryboardEmbedSegueTemplate doesn't exist in iOS5
-    if( !NSClassFromString(@"NSLayoutConstraint") ){
+    if( [[[UIDevice currentDevice] systemVersion] compare:@"6.0" options:NSNumericSearch] == NSOrderedAscending ){
         [NSKeyedUnarchiver setClass:[RRStoryboardEmbedSegue class] forClassName:@"UIStoryboardEmbedSegueTemplate"];
     }
 
